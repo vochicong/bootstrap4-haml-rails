@@ -184,7 +184,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
-  bootstrap (~> 4.0.0.alpha3.1)
+  bootstrap (~> 4.0.0.alpha6)
   byebug
   coffee-rails (~> 4.2)
   haml-rails

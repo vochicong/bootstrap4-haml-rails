@@ -1,0 +1,7 @@
+// File: app/assets/stylesheets/custom.scss
+@import "bootstrap";
+@media (min-width: 992px) {
+  .navbar-toggleable-md .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+  }
+}
