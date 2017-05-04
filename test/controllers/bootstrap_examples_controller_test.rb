@@ -9,4 +9,8 @@ class BootstrapExamplesControllerTest < ActionDispatch::IntegrationTest
     get navbar_path
     assert_response :success
   end
+  test "should get /btn" do
+    get btn_path
+    assert_response :success
+  end
 end

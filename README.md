@@ -20,6 +20,7 @@ provided by the [RailsApps Project](http://railsapps.github.io/).
   ```
 - [Heroku GitHub integration](https://devcenter.heroku.com/articles/github-integration)
 - [Ruby project on Travis CI](https://docs.travis-ci.com/user/languages/ruby/)
+- [Haml reference](http://haml.info/docs/yardoc/file.REFERENCE.html)
 
 Requirements
 -------------

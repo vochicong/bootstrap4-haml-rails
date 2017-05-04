@@ -1,0 +1,50 @@
+%h1 Awesome buttons
+
+.m-2
+  %a.btn.btn-outline-primary{ href: "#", role: "button" } Primary
+  %a.btn.btn-secondary{ href: "#", role: "button" } Secondary
+  %a.btn.btn-success{ href: "#", role: "button" } Success
+  %a.btn.btn-info{ href: "#", role: "button" } Info
+  %a.btn.btn-warning{ href: "#", role: "button" } Warning
+  %a.btn.btn-danger{ href: "#", role: "button" } Danger
+  %a.btn.btn-link{ href: "#", role: "button" } Link
+
+.m-2
+  %a.btn.btn-primary.btn-block{ href: "#", role: "button" } Block level button
+
+.m-2
+  %a.btn.btn-primary.btn-lg{ href: "#", role: "button" } Large button
+  %a.btn.btn-primary.btn-sm{ href: "#", role: "button" } Small button
+
+.m-2
+  %button.btn.btn-primary{ type: "button", "data-toggle": "button", "aria-pressed": "false" } Inactive
+  %button.btn.btn-primary.active{ type: "button", "data-toggle": "button", "aria-pressed": "true" } Active
+  %a.btn.btn-primary.disabled{ href: "#", role: "button", "aria-disabled": "true" } Disabled
+
+.m-2
+  .btn-group{ "data-toggle": "buttons" }
+    %label.btn.btn-primary.active
+      %input{ type: "checkbox", checked: true } Checkbox 1
+    %label.btn.btn-primary.active
+      %input{ type: "checkbox", checked: true } Checkbox 2
+    %label.btn.btn-primary
+      %input{ type: "checkbox" } Checkbox 3
+
+.m-2
+  .btn-group{ "data-toggle": "buttons" }
+    %label.btn.btn-primary.active
+      %input{ type: "radio", name: "options", id: "option1", checked: true } Radio 1
+    %label.btn.btn-primary
+      %input{ type: "radio", name: "options", id: "option2" } Radio 2
+    %label.btn.btn-primary
+      %input{ type: "radio", name: "options", id: "option3" } Radio 3
+
+%h2 Source code:
+%ul.list-group
+  %li.list-group-item
+    = link_to "btn.html.haml", oss_url("app/views/bootstrap_examples/btn.html.haml")
+
+%h2 References:
+%ul.list-group
+  %li.list-group-item
+    %a{href:"https://v4-alpha.getbootstrap.com/components/buttons/"} Bootstrap/Components/Buttons
