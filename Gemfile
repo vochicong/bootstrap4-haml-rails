@@ -12,9 +12,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-group :development, :test do
-  gem 'byebug', platform: :mri
-end
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
@@ -31,7 +28,12 @@ group :development do
   gem 'rails_layout'
 end
 group :development, :test do
+  gem 'byebug', platform: :mri
   gem 'sqlite3'
+end
+group :test do
+  gem 'guard'
+  gem 'guard-minitest'
 end
 group :production do
   gem 'pg'

@@ -18,6 +18,8 @@ provided by the [RailsApps Project](http://railsapps.github.io/).
   ```
   $ heroku run gem install bundler
   ```
+- [Heroku GitHub integration](https://devcenter.heroku.com/articles/github-integration)
+- [Ruby project on Travis CI](https://docs.travis-ci.com/user/languages/ruby/)
 
 Requirements
 -------------
@@ -25,6 +27,15 @@ Requirements
 - Ruby 2.3.0
 - Rails 5.0.1
 - Bootstrap 4
+
+Testing
+--------
+
+```
+$ bundle install
+$ bundle exec rails test
+$ bundle exec guard
+```
 
 Issues
 -------------

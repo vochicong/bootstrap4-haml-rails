@@ -2,8 +2,11 @@ require 'test_helper'
 
 class BootstrapExamplesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get bootstrap_examples_index_url
+    get root_path
     assert_response :success
   end
-
+  test "should get /navbar" do
+    get navbar_path
+    assert_response :success
+  end
 end
