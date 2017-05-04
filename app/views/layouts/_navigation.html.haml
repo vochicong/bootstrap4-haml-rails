@@ -1,0 +1,21 @@
+%nav.navbar.navbar-toggleable-md.navbar-inverse.bg-inverse
+  %button.navbar-toggler.navbar-toggler-right{ type: "button", "data-toggle": "collapse", "data-target": "#navbarSupportedContent", "aria-controls": "navbarSupportedContent", "aria-expanded": "false", "aria-label": "Toggle navigation" }
+    %span.navbar-toggler-icon
+  = link_to "Home", root_path, class: "navbar-brand"
+
+  #navbarSupportedContent.collapse.navbar-collapse
+    .navbar-nav.mr-auto
+      =link_to 'Active', '#', class: "nav-item nav-link active"
+      =link_to 'Link', '#', class: "nav-item nav-link"
+      =link_to 'Disabled', '#', class: 'nav-item nav-link disabled'
+      .nav-item.dropdown
+        %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{ href:"#{root_path}", "data-toggle":"dropdown", "aria-haspopup":"true", "aria-expanded":"false" } Selection
+        .dropdown-menu{ "aria-labelledby":"navbarDropdownMenuLink" }
+          %a.dropdown-item{ href:"#{navbar_path}" } Navbar
+          %a.dropdown-item{ href:"#{btn_path}" } Buttons
+      %span.navbar-text
+        %span Navbar inline text
+    .navbar-nav
+      %form.form-inline.my-2.my-lg-0
+        %input.form-control.mr-sm-2{ type:"text", placeholder:"Search" }
+        %button.btn.btn-outline-success.my-2.my-sm-0{ type:"submit" } Search

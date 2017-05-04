@@ -10,4 +10,9 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
-    = yield
+    .container
+      %header
+        = render 'layouts/navigation'
+      %main{:role => "main"}
+        = yield
+
