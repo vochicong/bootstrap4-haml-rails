@@ -27,3 +27,37 @@ h2 {
 .bd-example-row-flex-cols .row {
   min-height: 5rem;
 }
+
+@mixin hightlight {
+  @extend .bg-success;
+  @extend .text-white;
+}
+
+th {
+  @include hightlight;
+}
+
+.scroll-x {
+  overflow-x: scroll;
+}
+
+@mixin fixed-x {
+  position: sticky;
+  width: 2em;
+  @include hightlight;
+}
+
+.fixed-x0 {
+  @include fixed-x;
+  left: 0;
+}
+
+.fixed-x1 {
+  @include fixed-x;
+  left: 2em;
+}
+
+div.scroll-example {
+  @extend .scroll-x;
+  height: 30em;
+}

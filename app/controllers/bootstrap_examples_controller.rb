@@ -11,6 +11,9 @@ class BootstrapExamplesController < ApplicationController
   def grid
   end
 
+  def table
+  end
+
   def tmp
   end
 end

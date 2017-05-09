@@ -1,0 +1,36 @@
+%h1 Table
+
+.lead 1st and 2nd rows are sticky. The others will scroll.
+.lead 左の行は固定され、それ以外の行はスクロールされる。
+
+.scroll-example
+  %table.table.table-striped.table-bordered.table-hover
+    - nrow = 20
+    - ncol = 30
+    %thead
+      %tr.fixed-y0
+        %th.fixed-x0 #
+        %th.fixed-x1 TH1
+        - (2..ncol).each do |j|
+          %th TH#{j}
+    %tbody
+    - (1..nrow).each do |i|
+      %tr
+        %td.fixed-x0 #{i}
+        %td.fixed-x1 td1
+        - (2..ncol).each do |j|
+          %td td#{j}
+
+%h2 Source code
+%ul
+  %li
+    %a{ href: "#{oss_url('app/views/bootstrap_examples/table.html.haml')}" } table.html.haml
+
+%h2 References
+%ul
+  %li
+    %a{ href: "https://v4-alpha.getbootstrap.com/content/tables/" } Bootstrap tables
+  %li
+    %a{ href: "https://codepen.io/gregor/pen/ApKxu" } Fixed 1st collumn table
+  %li
+    %a{ href: "https://codepen.io/tfzvang/pen/WQBwVo" } Fixed 1st header table

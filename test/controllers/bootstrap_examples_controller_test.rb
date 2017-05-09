@@ -17,4 +17,8 @@ class BootstrapExamplesControllerTest < ActionDispatch::IntegrationTest
     get grid_path
     assert_response :success
   end
+  test "should get /table" do
+    get table_path
+    assert_response :success
+  end
 end
