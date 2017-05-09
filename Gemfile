@@ -26,6 +26,7 @@ group :development do
   gem 'better_errors'
   gem 'html2haml'
   gem 'rails_layout'
+  gem 'erb2haml'
 end
 group :development, :test do
   gem 'byebug', platform: :mri
