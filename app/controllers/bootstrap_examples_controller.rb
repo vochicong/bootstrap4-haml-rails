@@ -8,6 +8,9 @@ class BootstrapExamplesController < ApplicationController
   def btn
   end
 
+  def grid
+  end
+
   def tmp
   end
 end

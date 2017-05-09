@@ -5,3 +5,11 @@
     padding-right: 1.5rem;
   }
 }
+
+@mixin border1 {
+  border: 1px solid rgba(86, 61, 124, .2);
+}
+
+.col {
+  @include border1;
+}

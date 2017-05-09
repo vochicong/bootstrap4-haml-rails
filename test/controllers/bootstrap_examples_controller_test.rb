@@ -13,4 +13,8 @@ class BootstrapExamplesControllerTest < ActionDispatch::IntegrationTest
     get btn_path
     assert_response :success
   end
+  test "should get /grid" do
+    get grid_path
+    assert_response :success
+  end
 end

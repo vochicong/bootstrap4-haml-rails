@@ -1,0 +1,38 @@
+%h1 Grid
+
+.lead Bootstrap includes a powerful mobile-first flexbox grid system for building layouts of all shapes and sizes.
+
+.row
+  .col Entire row
+.row
+  .col 1st of 2
+  .col 2nd of 2
+.row
+  .col 1st of 3
+  .col 2nd of 3
+  .col 3rd of 3
+.row
+  .col.col-2
+    %code.highlighter-rouge .col-2 2/12
+  .col.col-3
+    %code.highlighter-rouge .col-5 3/12
+  .col Auto (=5/12)
+.row
+  .col.col-md-3.hidden-sm-down
+    %code.highlighter-rouge .col-md-3 .hidden-sm-down
+  .col.col-md-6.col-sm-12
+    %code.highlighter-rouge .col-md-6 .col-sm-12
+  .col.hidden-sm-down
+    %code.highlighter-rouge .hidden-sm-down
+
+%h2 Source code
+%ul
+  %li
+    %a{ href: "#{oss_url('app/views/bootstrap_examples/grid.html.haml')}" } grid.html.haml
+
+%h2 References
+%ul
+  %li
+    %a{ href: "https://v4-alpha.getbootstrap.com/layout/grid/" } Grid system
+  %li
+    %a{ href: "https://v4-alpha.getbootstrap.com/layout/responsive-utilities/" } Responsive utilities
