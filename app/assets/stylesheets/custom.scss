@@ -10,6 +10,7 @@
   border: 1px solid rgba(86, 61, 124, .2);
 }
 
+.row,
 .row>.col,
 .row>[class^=col-] {
   @include border1;
@@ -21,4 +22,8 @@ h1 {
 
 h2 {
   padding-top: 1em;
+}
+
+.bd-example-row-flex-cols .row {
+  min-height: 5rem;
 }

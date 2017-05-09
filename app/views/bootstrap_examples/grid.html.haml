@@ -24,6 +24,8 @@
     %code.highlighter-rouge .col-md-6 .col-sm-12
   .col.hidden-sm-down
     %code.highlighter-rouge .hidden-sm-down
+
+// Mix collumn widths for various device sizes
 .row
   .col.col-md-8 .col.col-md-8 66% width for >md
   .col.col-md-4 .col.col-md-4
@@ -31,6 +33,16 @@
   .col-6.col-md-4 .col-6.col-md-4 33% with for >md
   .col-6.col-md-4 .col-6.col-md-4
   .col-6.col-md-4 .col-6.col-md-4
+
+// Alignment
+.bd-example-row-flex-cols
+  .row.align-items-start .row.align-items-start
+  .row.align-items-center .row.align-items-center
+  .row.align-items-end .row.align-items-end
+  .row
+    .col.align-self-end .col.align-self-end
+    .col.align-self-center  .col.align-self-center
+    .col.align-self-start .col.align-self-start
 
 %h2 Source code
 %ul
