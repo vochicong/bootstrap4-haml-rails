@@ -10,7 +10,8 @@
   border: 1px solid rgba(86, 61, 124, .2);
 }
 
-.col {
+.row>.col,
+.row>[class^=col-] {
   @include border1;
 }
 
