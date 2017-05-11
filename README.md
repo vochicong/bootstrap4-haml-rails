@@ -23,6 +23,7 @@ provided by the [RailsApps Project](http://railsapps.github.io/).
 - [Haml reference](http://haml.info/docs/yardoc/file.REFERENCE.html)
 - [Sample CircleCI configuration](https://circleci.com/docs/1.0/config-sample/)
 - [CircleCI configuration for Heroku deployment](https://circleci.com/docs/1.0/continuous-deployment-with-heroku/)
+- [Cloud SQL for Rails](https://cloud.google.com/appengine/docs/flexible/ruby/using-cloud-sql?authuser=3#setting_up_your_local_environment)
 
 Requirements
 -------------

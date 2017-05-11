@@ -37,5 +37,5 @@ group :test do
   gem 'guard-minitest'
 end
 group :production do
-  gem 'pg'
+  gem 'mysql2', '~> 0.3.18'
 end

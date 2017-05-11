@@ -1,0 +1,14 @@
+env: flex
+runtime: ruby
+entrypoint: bundle exec rackup -p $PORT
+
+env_variables:
+  SECRET_KEY_BASE: [SECRET_KEY_BASE]
+  DOMAIN_NAME: [DOMAIN_NAME]
+  MYSQL_USER: [MYSQL_USER]
+  MYSQL_PASSWORD: [MYSQL_PASSWORD]
+  MYSQL_DATABASE: [MYSQL_DATABASE]
+  MYSQL_SOCKET_PATH: /cloudsql/[MYSQL_INSTANCE_CONNECTION_NAME]
+
+beta_settings:
+  cloud_sql_instances: [MYSQL_INSTANCE_CONNECTION_NAME]

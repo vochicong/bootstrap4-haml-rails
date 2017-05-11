@@ -1,8 +1,0 @@
-env: flex
-runtime: ruby
-entrypoint: bundle exec rackup -p $PORT
-
-env_variables:
-  SECRET_KEY_BASE: 7f14dbe220820aa7ef5ae554183051a0d8ea370ea915cd89cb7c7945bf446080270b7f2a1eb80067ef6310e04a89388f4ae37ea203032ff5f7b2ddfbd358a00c
-  DOMAIN_NAME: example.com
-
