@@ -16,6 +16,8 @@ dependencies:
     - gcloud --quiet components update app
     - gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
     - gcloud config set project $GCLOUD_PROJECT
+    - bundle exec rails assets:precompile
+
 
 test:
   override:
@@ -27,4 +29,4 @@ deployment:
     # heroku:
     #   appname: mysterious-shore-48399
     commands:
-    - gcloud app deploy
+    - gcloud --quiet app deploy
