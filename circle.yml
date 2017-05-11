@@ -1,0 +1,24 @@
+machine:
+  timezone:
+    Asia/Tokyo
+
+  ruby:
+    version:
+      2.3.0
+
+  environment:
+    DOMAIN_NAME: example.com
+
+dependencies:
+  pre:
+    - gem install bundler --pre
+
+test:
+  override:
+    - bundle exec rails test
+
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: mysterious-shore-48399
