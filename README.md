@@ -21,6 +21,8 @@ provided by the [RailsApps Project](http://railsapps.github.io/).
 - [Heroku GitHub integration](https://devcenter.heroku.com/articles/github-integration)
 - [Ruby project on Travis CI](https://docs.travis-ci.com/user/languages/ruby/)
 - [Haml reference](http://haml.info/docs/yardoc/file.REFERENCE.html)
+- [Sample CircleCI configuration](https://circleci.com/docs/1.0/config-sample/)
+- [CircleCI configuration for Heroku deployment](https://circleci.com/docs/1.0/continuous-deployment-with-heroku/)
 
 Requirements
 -------------

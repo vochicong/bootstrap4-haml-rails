@@ -2,23 +2,15 @@ machine:
   timezone:
     Asia/Tokyo
 
-  ruby:
-    version:
-      2.3.0
-
   environment:
     DOMAIN_NAME: example.com
 
 dependencies:
   pre:
     - gem install bundler --pre
-    - echo $CLIENT_SECRET | base64 --decode > ${HOME}/client-secret.json
-    - gcloud --quiet components update app
-    - gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
-    - gcloud config set project $GCLOUD_PROJECT
     - bundle install
-    - bundle exec rails assets:precompile
-
+    # backup database.yml because CircleCI will override it
+    - cp config/database.yml config/database.yml.bak
 
 test:
   override:
@@ -32,4 +24,11 @@ deployment:
   staging:
     branch: master
     commands:
+    - echo $CLIENT_SECRET | base64 --decode > ${HOME}/client-secret.json
+    - gcloud --quiet components update app
+    - gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
+    - gcloud config set project $GCLOUD_PROJECT
+    - bundle exec rails assets:precompile
+    # replace CircleCI's generated database.yml
+    - cp config/database.yml.bak config/database.yml
     - gcloud --quiet app deploy
