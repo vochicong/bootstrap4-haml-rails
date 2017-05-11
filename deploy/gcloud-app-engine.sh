@@ -12,7 +12,7 @@ sed "s/\[MYSQL_DATABASE\]/$MYSQL_DATABASE/g" | \
 sed "s/\[MYSQL_INSTANCE_CONNECTION_NAME\]/$MYSQL_INSTANCE_CONNECTION_NAME/g" \
 > app.yaml
 
-gcloud --quiet components update app
+gcloud --quiet components update
 gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
 gcloud config set project $GCLOUD_PROJECT
 
