@@ -24,9 +24,11 @@ test:
     - bundle exec rails test
 
 deployment:
+  dev:
+    branch: dev
+    heroku:
+      appname: mysterious-shore-48399
   staging:
     branch: master
-    # heroku:
-    #   appname: mysterious-shore-48399
     commands:
     - gcloud --quiet app deploy
