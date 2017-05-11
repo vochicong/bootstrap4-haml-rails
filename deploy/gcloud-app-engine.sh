@@ -12,7 +12,10 @@ sed "s/\[MYSQL_DATABASE\]/$MYSQL_DATABASE/g" | \
 sed "s/\[MYSQL_INSTANCE_CONNECTION_NAME\]/$MYSQL_INSTANCE_CONNECTION_NAME/g" \
 > app.yaml
 
-gcloud --quiet components update
+# Update gcloud (need sudo for now)
+sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
+sudo chmod 757 /home/ubuntu/.config/gcloud/logs -R
+
 gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
 gcloud config set project $GCLOUD_PROJECT
 
