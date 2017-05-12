@@ -18,6 +18,7 @@ sudo chmod 757 /home/ubuntu/.config/gcloud/logs -R
 
 gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
 gcloud config set project $GCLOUD_PROJECT
+gcloud config set app/promote_by_default false
 
 bundle exec rails assets:precompile
-gcloud --quiet app deploy
+gcloud --quiet app deploy --version=$APP_VERSION
