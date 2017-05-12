@@ -22,7 +22,7 @@ gcloud config set project $GCLOUD_PROJECT
 gcloud config set app/promote_by_default false
 
 [ -f .bundle/config ] && mv .bundle/config .bundle/config.bak
-cp deploy/bundle-config .bundle/config
+cp deploy/bundle-config-production .bundle/config
 bundle exec rails assets:precompile
 
 APP_VERSION=`echo $CIRCLE_BRANCH | sed "s/_/-/g"`

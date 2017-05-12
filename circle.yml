@@ -8,7 +8,7 @@ machine:
 dependencies:
   pre:
     - gem install bundler
-    - bundle install --clean --with=test --without="development,production"
+    - cp deploy/bundle-config-test .bundle/config
     # backup database.yml because CircleCI will override it
     - cp config/database.yml config/database.yml.bak
 
@@ -22,8 +22,8 @@ deployment:
   dev:
     branch: /dev.*/
     commands:
-      - sh deploy/gcloud-app-engine.sh
+      - sh deploy/gcloud-app-engine-deploy.sh
   staging:
     branch: master
     commands:
-      - sh deploy/gcloud-app-engine.sh
+      - sh deploy/gcloud-app-engine-deploy.sh
