@@ -8,7 +8,7 @@ machine:
 dependencies:
   pre:
     - gem install bundler
-    - cp deploy/bundle-config-test .bundle/config
+    - mkdir -p .bundle && cp deploy/bundle-config-test .bundle/config
     # backup database.yml because CircleCI will override it
     - cp config/database.yml config/database.yml.bak
 
