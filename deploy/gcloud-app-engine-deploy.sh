@@ -23,7 +23,7 @@ gcloud config set app/promote_by_default false
 
 [ -f .bundle/config ] && mv .bundle/config .bundle/config.bak
 cp deploy/bundle-config-production .bundle/config
-bundle exec rails assets:precompile
+# bundle exec rails assets:precompile # to be run in GCP Docker
 
 APP_VERSION=`echo $CIRCLE_BRANCH | sed "s/_/-/g"`
 gcloud --quiet app deploy --version=$APP_VERSION
