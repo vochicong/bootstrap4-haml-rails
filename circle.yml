@@ -15,15 +15,15 @@ dependencies:
 test:
   override:
     - bundle exec rails test
+    # replace CircleCI's generated database.yml
+    - cp config/database.yml.bak config/database.yml
 
 deployment:
   dev:
     branch: dev
-    heroku:
-      appname: mysterious-shore-48399
+    commands:
+      - APP_VERSION=dev sh deploy/gcloud-app-engine.sh
   staging:
     branch: master
     commands:
-      # replace CircleCI's generated database.yml
-      - cp config/database.yml.bak config/database.yml
-      - sh deploy/gcloud-app-engine.sh
+      - APP_VERSION=master sh deploy/gcloud-app-engine.sh
