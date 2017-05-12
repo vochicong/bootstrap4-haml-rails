@@ -20,10 +20,10 @@ test:
 
 deployment:
   dev:
-    branch: dev
+    branch: /dev.*/
     commands:
-      - APP_VERSION=dev sh deploy/gcloud-app-engine.sh
+      - APP_VERSION=$CIRCLE_BRANCH sh deploy/gcloud-app-engine.sh
   staging:
     branch: master
     commands:
-      - APP_VERSION=master sh deploy/gcloud-app-engine.sh
+      - APP_VERSION=$CIRCLE_BRANCH sh deploy/gcloud-app-engine.sh
