@@ -22,8 +22,8 @@ deployment:
   dev:
     branch: /dev.*/
     commands:
-      - APP_VERSION=$CIRCLE_BRANCH sh deploy/gcloud-app-engine.sh
+      - sh deploy/gcloud-app-engine.sh
   staging:
     branch: master
     commands:
-      - APP_VERSION=$CIRCLE_BRANCH sh deploy/gcloud-app-engine.sh
+      - sh deploy/gcloud-app-engine.sh

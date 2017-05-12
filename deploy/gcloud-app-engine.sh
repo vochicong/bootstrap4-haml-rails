@@ -21,4 +21,6 @@ gcloud config set project $GCLOUD_PROJECT
 gcloud config set app/promote_by_default false
 
 bundle exec rails assets:precompile
+
+APP_VERSION=`echo $CIRCLE_BRANCH | sed "s/_/-/g"`
 gcloud --quiet app deploy --version=$APP_VERSION
