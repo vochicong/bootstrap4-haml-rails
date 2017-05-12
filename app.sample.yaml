@@ -1,6 +1,6 @@
 env: flex
 runtime: ruby
-entrypoint: bundle exec rackup -p $PORT
+entrypoint: sh deploy/gcloud-app-engine-entrypoint.sh
 
 env_variables:
   SECRET_KEY_BASE: [SECRET_KEY_BASE]
@@ -9,6 +9,7 @@ env_variables:
   MYSQL_PASSWORD: [MYSQL_PASSWORD]
   MYSQL_DATABASE: [MYSQL_DATABASE]
   MYSQL_SOCKET_PATH: /cloudsql/[MYSQL_INSTANCE_CONNECTION_NAME]
+  RAILS_ENV: production
 
 beta_settings:
   cloud_sql_instances: [MYSQL_INSTANCE_CONNECTION_NAME]
