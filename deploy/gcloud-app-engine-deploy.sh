@@ -3,27 +3,24 @@ set -e
 
 echo $CLIENT_SECRET | base64 --decode > ${HOME}/client-secret.json
 
-cat app.sample.yaml | \
-sed "s/\[RAILS_ENV\]/$RAILS_ENV/g" | \
-sed "s/\[SECRET_KEY_BASE\]/$SECRET_KEY_BASE/g" | \
-sed "s/\[DOMAIN_NAME\]/$DOMAIN_NAME/g" | \
-sed "s/\[MYSQL_USER\]/$MYSQL_USER/g" | \
-sed "s/\[MYSQL_PASSWORD\]/$MYSQL_PASSWORD/g" | \
-sed "s/\[MYSQL_DATABASE\]/$MYSQL_DATABASE/g" | \
-sed "s/\[MYSQL_INSTANCE_CONNECTION_NAME\]/$MYSQL_INSTANCE_CONNECTION_NAME/g" \
+cat app.sample.yaml | sed \
+  -e "s/\[RAILS_ENV\]/$RAILS_ENV/g" \
+  -e "s/\[SECRET_KEY_BASE\]/$SECRET_KEY_BASE/g" \
+  -e "s/\[DOMAIN_NAME\]/$DOMAIN_NAME/g" \
+  -e "s/\[MYSQL_USER\]/$MYSQL_USER/g" \
+  -e "s/\[MYSQL_PASSWORD\]/$MYSQL_PASSWORD/g" \
+  -e "s/\[MYSQL_DATABASE\]/$MYSQL_DATABASE/g" \
+  -e "s/\[MYSQL_INSTANCE_CONNECTION_NAME\]/$MYSQL_INSTANCE_CONNECTION_NAME/g" \
 > app.yaml
 
-# Update gcloud (need sudo for now)
-[ -f /opt/google-cloud-sdk/bin/gcloud ] && sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
-sudo chmod 757 /home/ubuntu/.config/gcloud/logs -R
+cat config/secrets.sample.yml | sed \
+  -e "s/<%= ENV\[\"DOMAIN_NAME\"\] %>/$DOMAIN_NAME/g" \
+  -e "s/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/$SECRET_KEY_BASE/g" \
+> config/secrets.yml
 
 gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
 gcloud config set project $GCLOUD_PROJECT
 gcloud config set app/promote_by_default false
 
-[ -f .bundle/config ] && mv .bundle/config .bundle/config.bak
-cp deploy/bundle-config-production .bundle/config
-# bundle exec rails assets:precompile # to be run in GCP Docker
-
-APP_VERSION=`echo $CIRCLE_BRANCH | sed "s/_/-/g"`
+echo APP_VERSION:$APP_VERSION
 gcloud --quiet app deploy --version=$APP_VERSION

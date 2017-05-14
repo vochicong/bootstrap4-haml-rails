@@ -3,27 +3,32 @@ machine:
     Asia/Tokyo
 
   environment:
-    DOMAIN_NAME: example.com
+    # env vars are defined on CircleCI console
 
 dependencies:
   pre:
     - gem install bundler
-    - mkdir -p .bundle && cp deploy/bundle-config-test .bundle/config
-    # backup database.yml because CircleCI will override it
-    - cp config/database.yml config/database.yml.bak
+  override:
+    # Don't use --path=vendor/bundle because it will be copied to GCP App
+    - bundle install --clean --with="test" --without="development production"
+
+database:
+  pre:
+    - cp config/secrets.sample.yml config/secrets.yml
 
 test:
   override:
     - bundle exec rails test
-    # replace CircleCI's generated database.yml
-    - cp config/database.yml.bak config/database.yml
+  post:
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update && sudo chmod 757 /home/ubuntu/.config/gcloud/logs -R
+    - sh deploy/git-reset-clean.sh # cleaning before deployment
 
 deployment:
   dev:
     branch: /dev.*/
     commands:
-      - sh deploy/gcloud-app-engine-deploy.sh
+      - APP_VERSION=`echo $CIRCLE_BRANCH | sed "s/_/-/g"` sh deploy/gcloud-app-engine-deploy.sh
   staging:
     branch: master
     commands:
-      - sh deploy/gcloud-app-engine-deploy.sh
+      - APP_VERSION=`echo $CIRCLE_BRANCH | sed "s/_/-/g"` sh deploy/gcloud-app-engine-deploy.sh

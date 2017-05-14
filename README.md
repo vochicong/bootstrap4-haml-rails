@@ -4,6 +4,7 @@ Bootstrap 4 Example in Haml&Sass/Rails
 Getting Started
 ---------------
 
+- Copy config/secrets.sample.yml to config/secrets.yml. Modify config/secrets.yml to your taste but don't commit it.
 - [Live Demo](https://mysterious-shore-48399.herokuapp.com)
 - [GitHub vochicong/bootstrap4-haml-rails](https://github.com/vochicong/bootstrap4-haml-rails)
 
@@ -28,7 +29,7 @@ provided by the [RailsApps Project](http://railsapps.github.io/).
 Requirements
 -------------
 
-- Ruby 2.3.0
+- Ruby 2.4.1
 - Rails 5.0.1
 - Bootstrap 4
 

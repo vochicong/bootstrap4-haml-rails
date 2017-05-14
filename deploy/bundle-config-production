@@ -1,4 +1,0 @@
----
-BUNDLE_CLEAN: "true"
-BUNDLE_WITHOUT: "development:test"
-BUNDLE_WITH: "production"
