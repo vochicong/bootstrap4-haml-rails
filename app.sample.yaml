@@ -1,5 +1,5 @@
 env: flex
-runtime: ruby
+runtime: custom
 entrypoint: sh deploy/gcloud-app-engine-entrypoint.sh
 manual_scaling:
   instances: 1

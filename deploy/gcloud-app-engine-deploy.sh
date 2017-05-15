@@ -13,10 +13,13 @@ cat app.sample.yaml | sed \
   -e "s/\[MYSQL_INSTANCE_CONNECTION_NAME\]/$MYSQL_INSTANCE_CONNECTION_NAME/g" \
 > app.yaml
 
-cat config/secrets.sample.yml | sed \
-  -e "s/<%= ENV\[\"DOMAIN_NAME\"\] %>/$DOMAIN_NAME/g" \
-  -e "s/<%= ENV\[\"SECRET_KEY_BASE\"\] %>/$SECRET_KEY_BASE/g" \
-> config/secrets.yml
+cp config/secrets.sample.yml config/secrets.yml
+
+cp deploy/dockerignore .dockerignore
+cat deploy/Dockerfile | sed \
+  -e "s/\[SECRET_KEY_BASE\]/$SECRET_KEY_BASE/g" \
+  -e "s/\[DOMAIN_NAME\]/$DOMAIN_NAME/g"
+> Dockerfile
 
 gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
 gcloud config set project $GCLOUD_PROJECT

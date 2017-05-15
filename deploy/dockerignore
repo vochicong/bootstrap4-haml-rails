@@ -1,0 +1,7 @@
+.git
+.hg
+.svn
+
+# bundler generated files
+vendor/bundle
+.bundle/config
