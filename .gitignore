@@ -84,6 +84,7 @@ pickle-email-*.html
 .powenv
 /app.yaml
 /config/secrets.yml
+/docker-build-secrets
 
 # tilde files are usually backup files from a text editor
 *~

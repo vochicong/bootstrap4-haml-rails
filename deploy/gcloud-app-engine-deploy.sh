@@ -15,11 +15,10 @@ cat app.sample.yaml | sed \
 
 cp config/secrets.sample.yml config/secrets.yml
 
-cp deploy/dockerignore .dockerignore
-cat deploy/Dockerfile | sed \
+cat docker-build-secrets-sample | sed \
   -e "s/\[SECRET_KEY_BASE\]/$SECRET_KEY_BASE/g" \
-  -e "s/\[DOMAIN_NAME\]/$DOMAIN_NAME/g"
-> Dockerfile
+  -e "s/\[DOMAIN_NAME\]/$DOMAIN_NAME/g" \
+> docker-build-secrets
 
 gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
 gcloud config set project $GCLOUD_PROJECT

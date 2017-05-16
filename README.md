@@ -44,6 +44,7 @@ $ bundle exec guard
 
 Issues
 -------------
+- [env_variables in app.yaml is not available during docker build](https://github.com/vochicong/bootstrap4-haml-rails/issues/11)
 
 Similar Projects
 ----------------

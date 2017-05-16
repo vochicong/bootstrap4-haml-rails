@@ -34,9 +34,7 @@ COPY . /app/
 # Temporary. Will be moved to base image later.
 ENV RACK_ENV=production \
     RAILS_ENV=production \
-    RAILS_SERVE_STATIC_FILES=true \
-    SECRET_KEY_BASE: [SECRET_KEY_BASE] \
-    DOMAIN_NAME: [DOMAIN_NAME]
+    RAILS_SERVE_STATIC_FILES=true
 
 # Install required gems if Gemfile.lock is present.
 RUN if test -f Gemfile.lock; then \
@@ -44,9 +42,13 @@ RUN if test -f Gemfile.lock; then \
       && rbenv rehash; \
     fi
 
+
 # Run asset pipeline if we're in a Rails app.
+SHELL ["/bin/bash", "-c"]
 RUN if test -d app/assets -a -f config/application.rb; then \
-      bundle exec rake assets:precompile || true; \
+      source docker-build-secrets && \
+      bundle exec rake assets:precompile; \
+      rm docker-build-secrets; \
     fi
 
 # BUG: Reset entrypoint to override base image.
