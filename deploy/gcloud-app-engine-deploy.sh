@@ -25,7 +25,9 @@ cp deploy/Dockerfile Dockerfile
 
 gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
 gcloud config set project $GCLOUD_PROJECT
-gcloud config set app/promote_by_default false
-
+PROMOTE_FLAG="--no-promote"
+if [ "$APP_VERSION" = "master" ]; then
+  PROMOTE_FLAG="--promote"
+fi
 echo APP_VERSION:$APP_VERSION
 gcloud --quiet app deploy --version=$APP_VERSION
