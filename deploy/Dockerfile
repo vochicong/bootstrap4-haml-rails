@@ -1,4 +1,4 @@
-FROM gcr.io/gcp-america/bootstrap4-haml-rails:latest
+FROM gcr.io/swift-delight-162206/bootstrap4-haml-rails:latest
 
 # Copy latest source
 COPY . /app/
