@@ -20,6 +20,9 @@ cat docker-build-secrets-sample | sed \
   -e "s/\[DOMAIN_NAME\]/$DOMAIN_NAME/g" \
 > docker-build-secrets
 
+# Overwrite Dockerfile, for gcloud app deploy
+cp deploy/Dockerfile Dockerfile
+
 gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
 gcloud config set project $GCLOUD_PROJECT
 gcloud config set app/promote_by_default false
