@@ -30,4 +30,9 @@ if [ "$APP_VERSION" = "master" ]; then
   PROMOTE_FLAG="--promote"
 fi
 echo APP_VERSION:$APP_VERSION
-gcloud --quiet app deploy --version=$APP_VERSION
+
+# Start the service if it is stopped
+gcloud app versions describe $APP_VERSION --service=default | grep "servingStatus: SERVING" || \
+    gcloud --quiet app versions start $APP_VERSION
+
+gcloud --quiet app deploy --version=$APP_VERSION $PROMOTE_FLAG
