@@ -46,9 +46,9 @@ RUN if test -f Gemfile.lock; then \
 # Run asset pipeline if we're in a Rails app.
 SHELL ["/bin/bash", "-c"]
 RUN if test -d app/assets -a -f config/application.rb; then \
-      source docker-build-secrets && \
+      source docker-build-secrets ; \
       bundle exec rake assets:precompile; \
-      rm docker-build-secrets; \
+      rm -f docker-build-secrets; \
     fi
 
 # BUG: Reset entrypoint to override base image.
