@@ -15,10 +15,10 @@ cat app.sample.yaml | sed \
 
 cp config/secrets.sample.yml config/secrets.yml
 
-cat docker-build-secrets-sample | sed \
+cat deploy/docker-build-secrets-sample | sed \
   -e "s/\[SECRET_KEY_BASE\]/$SECRET_KEY_BASE/g" \
   -e "s/\[DOMAIN_NAME\]/$DOMAIN_NAME/g" \
-> docker-build-secrets
+> deploy/docker-build-secrets
 
 # Overwrite Dockerfile, for gcloud app deploy
 cp deploy/Dockerfile Dockerfile
