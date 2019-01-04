@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    image: circleci/ruby:2.4-node
+    volumes:
+    - .:/app
+    - /usr/local/bundle
+    working_dir: /app
+    ports:
+    - 3000:3000
+    user: root
+    command:
+      - /bin/bash
+      - -c
+      - |
+        bundle install -j 4
+        bundle exec rails log:clear tmp:clear
+        rm -f tmp/pids/server.pid
+        bundle exec rails s -b 0.0.0.0 -p 3000
